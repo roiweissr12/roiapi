@@ -1,0 +1,16 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 24.3.0  # check for latest at https://github.com/psf/black/releases
+    hooks:
+      - id: black
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.3  # check for latest: https://github.com/astral-sh/ruff-pre-commit/releases
+    hooks:
+      - id: ruff
+        args: [--fix]  # optional: auto-fix issues
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.10.0  # check for latest: https://github.com/pre-commit/mirrors-mypy/releases
+    hooks:
+      - id: mypy
