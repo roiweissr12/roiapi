@@ -4,8 +4,9 @@ from .services import fake_llm_response
 
 router = APIRouter()
 
+
 @router.post("/generate", response_model=GenerateResponse)
-def generate_text(request: GenerateRequest):
+def generate_text(request: GenerateRequest) -> GenerateResponse:
     prompt = request.prompt.strip()
     if not prompt:
         raise HTTPException(status_code=400, detail="Prompt cannot be empty.")
