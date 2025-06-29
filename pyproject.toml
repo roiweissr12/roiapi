@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "roiapi"
+version = "0.1.0"
+description = "A clean, scalable FastAPI service that mimics an LLM."
+authors = ["Roi weiss"]
+readme = "README.md"
+packages = [{ include = "roiapi" }]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+fastapi = "*"
+uvicorn = { extras = ["standard"], version = "*" }
+pydantic = "*"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+httpx = "*"
+black = "*"
+ruff = "*"
+mypy = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 88
+target-version = ["py38"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "B"]  # E = pycodestyle errors, F = pyflakes, B = bugbear
+
+[tool.mypy]
+python_version = "3.8"
+strict = true
